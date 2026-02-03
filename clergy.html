@@ -4,32 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Духовенство - Храм Иверской иконы</title>
-    <!-- Стили -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Те же стили... */
         :root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
         body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
-        header { padding: 30px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
         .header-container { display: flex; align-items: center; justify-content: flex-start; }
-        .logo-img { max-height: 180px; width: auto; margin-right: 40px; }
-        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; color: #000; line-height: 1.2; }
-        .church-info p { font-size: 1.1rem; color: #555; font-style: italic; margin: 0; }
-        .navbar { background-color: #fff; padding: 20px 0; border-bottom: 1px solid #eee; }
-        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 10px; transition: color 0.3s; }
+        .logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
+        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
+        .church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
+        
+        @media (max-width: 991px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-img { margin-right: 0; margin-bottom: 15px; max-height: 120px; }
+            .church-info h1 { font-size: 1.4rem; }
+        }
+
+        .navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
         .nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
         .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
         .dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
         
-        .cleric-card { background: #fff; border: 1px solid #f0f0f0; padding: 30px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03); height: 100%; }
-        .cleric-photo { width: 250px; height: 300px; object-fit: cover; border-radius: 4px; margin-bottom: 20px; background-color: #eee; }
-        .cleric-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #000; margin-bottom: 10px; font-weight: bold; }
-        .cleric-rank { color: var(--accent-gold); text-transform: uppercase; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; letter-spacing: 1px; }
+        /* КАРТОЧКА СВЯЩЕННИКА */
+        .cleric-card { background: #fff; border: 1px solid #f0f0f0; padding: 30px; margin-bottom: 30px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.03); height: 100%; display: flex; flex-direction: column; align-items: center; }
+        
+        /* ИСПРАВЛЕНИЕ ФОТО */
+        .cleric-photo { 
+            width: 100%; 
+            max-width: 300px; /* Оптимальная ширина */
+            height: 400px;    /* Увеличенная высота, чтобы влез головной убор */
+            object-fit: cover; /* Заполняет рамку */
+            object-position: top center; /* ВАЖНО: Приклеивает фото к верхнему краю, чтобы не резать голову */
+            border-radius: 4px; 
+            margin-bottom: 20px; 
+            background-color: #f4f4f4;
+        }
+
+        .cleric-name { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: #000; margin-bottom: 10px; font-weight: bold; line-height: 1.2; }
+        .cleric-rank { color: var(--accent-gold); text-transform: uppercase; font-size: 0.85rem; font-weight: bold; margin-bottom: 15px; letter-spacing: 1px; min-height: 40px; display: flex; align-items: center; justify-content: center; }
         .cleric-bio { color: #555; font-size: 0.95rem; line-height: 1.6; }
         .section-title { text-align: center; font-family: 'Playfair Display', serif; margin: 40px 0 30px; color: #2c2c2c; border-bottom: 2px solid var(--accent-gold); display: inline-block; padding-bottom: 10px; }
+        
         footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
-        @media (max-width: 768px) { .header-container { flex-direction: column; text-align: center; } .logo-img { margin-right: 0; margin-bottom: 20px; } }
     </style>
 </head>
 <body>
@@ -72,21 +91,24 @@
         
         <h3 class="section-title">Настоятель храма</h3>
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-6 col-md-8">
                 <div class="cleric-card">
                     <img src="nastoyatel.png" alt="о. Василий" class="cleric-photo">
                     <div class="cleric-name">Протоиерей Василий Бильчук</div>
-                    <div class="cleric-rank">Настоятель храма Иверской иконы Божией Матери</div>
-	            <div class="cleric-rank">Настоятель Кафедрального Собора Рождества Христова г. Липецка</div>
+                    <div class="cleric-rank">
+                        <div>Настоятель храма Иверской иконы Божией Матери<br>
+                        Настоятель Кафедрального Собора Рождества Христова г. Липецка</div>
+                    </div>
                     <div class="cleric-bio">
                         Родился в 1957 году. В 1992 году окончил Московскую духовную академию.<br>                   
+                    </div>
                 </div>
             </div>
         </div>
 
         <h3 class="section-title">Священнослужители</h3>
-        <div class="row">
-            <div class="col-lg-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="cleric-card">
                     <img src="Likhosherst.jpg" class="cleric-photo">
                     <div class="cleric-name">Иерей Александр Лихошерст</div>
@@ -98,7 +120,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="cleric-card">
                     <img src="pigilev.png" class="cleric-photo">
                     <div class="cleric-name">Иерей Павел Пигилев</div>
@@ -110,7 +132,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
                 <div class="cleric-card">
                     <img src="malcev.png" class="cleric-photo">
                     <div class="cleric-name">Иерей Олег Мальцев</div>
@@ -126,7 +148,7 @@
 
         <h3 class="section-title">Диаконы</h3>
         <div class="row justify-content-center">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-md-8">
                 <div class="cleric-card">
                     <img src="pigilev2.png" class="cleric-photo">
                     <div class="cleric-name">Диакон Диомид Пигилев</div>
