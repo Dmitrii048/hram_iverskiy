@@ -4,34 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Храм Иверской иконы Божией Матери г. Липецк</title>
+    <meta name="description" content="Официальный сайт прихода храма Иверской иконы Божией Матери в городе Липецке. Расписание богослужений, новости, история.">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
         body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
-        header { padding: 30px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        
+        /* ШАПКА */
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
         .header-container { display: flex; align-items: center; justify-content: flex-start; }
-        .logo-img { max-height: 180px; width: auto; margin-right: 40px; }
-        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; color: #000; line-height: 1.2; }
-        .church-info p { font-size: 1.1rem; color: #555; font-style: italic; margin: 0; }
-        .navbar { background-color: #fff; padding: 20px 0; border-bottom: 1px solid #eee; }
-        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 10px; transition: color 0.3s; }
+        .logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
+        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
+        .church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
+        
+        /* АДАПТИВНОСТЬ ШАПКИ */
+        @media (max-width: 991px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-img { margin-right: 0; margin-bottom: 15px; max-height: 120px; }
+            .church-info h1 { font-size: 1.4rem; }
+            .church-info p { font-size: 0.95rem; }
+        }
+
+        /* МЕНЮ */
+        .navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
         .nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
         .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
         .dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
         
+        /* КАРТОЧКИ НОВОСТЕЙ */
         .news-card { display: flex; background: #fff; border: 1px solid #f0f0f0; margin-bottom: 30px; align-items: stretch; padding: 0; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; overflow: hidden; }
         .news-card:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
-        .news-img-placeholder { width: 300px; background-color: #eee; flex-shrink: 0; background-size: cover; background-position: center; min-height: 250px; }
-        .news-content { flex-grow: 1; padding: 30px; display: flex; flex-direction: column; justify-content: center; }
+        .news-img-placeholder { width: 40%; background-color: #f9f9f9; flex-shrink: 0; background-size: cover; background-position: center; min-height: 250px; }
+        .news-content { flex-grow: 1; padding: 30px; display: flex; flex-direction: column; justify-content: center; width: 60%; }
         .news-category { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-gold); letter-spacing: 1px; font-weight: bold; margin-bottom: 10px; }
-        .news-title { font-size: 1.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; text-decoration: none; color: #000; display: block; line-height: 1.2; }
+        .news-title { font-size: 1.5rem; margin-bottom: 15px; font-family: 'Playfair Display', serif; text-decoration: none; color: #000; display: block; line-height: 1.2; font-weight: 700; }
         .news-title:hover { color: var(--accent-gold); }
         .btn-read-more { border: 1px solid #ddd; background: transparent; color: var(--accent-gold); text-transform: uppercase; font-size: 0.8rem; padding: 10px 20px; letter-spacing: 1px; text-decoration: none; display: inline-block; transition: 0.3s; width: fit-content; margin-top: 15px; }
         .btn-read-more:hover { border-color: var(--accent-gold); background: var(--accent-gold); color: #fff; }
+
+        @media (max-width: 768px) { 
+            .news-card { flex-direction: column; } 
+            .news-img-placeholder { width: 100%; height: 200px; } 
+            .news-content { width: 100%; padding: 20px; }
+        }
+
         .sidebar-calendar { background: #f9f9f9; padding: 20px; border-top: 3px solid var(--accent-gold); }
         footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
-        @media (max-width: 768px) { .header-container { flex-direction: column; text-align: center; } .logo-img { margin-right: 0; margin-bottom: 20px; } .news-card { flex-direction: column; } .news-img-placeholder { width: 100%; height: 250px; } }
     </style>
 </head>
 <body>
@@ -83,7 +103,6 @@
                     </div>
                 </div>
                 <div class="news-card">
-                    <!-- Теперь фото без полей -->
                     <div class="news-img-placeholder" style="background-image: url('foto_hrama1.png');"></div>
                     <div class="news-content">
                         <div class="news-category">Богослужения</div>
