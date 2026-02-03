@@ -10,33 +10,32 @@
         :root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
         body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
         
-        /* ШАПКА */
-        header { padding: 30px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
         .header-container { display: flex; align-items: center; justify-content: flex-start; }
-        .logo-img { max-height: 180px; width: auto; margin-right: 40px; }
-        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; color: #000; line-height: 1.2; }
-        .church-info p { font-size: 1.1rem; color: #555; font-style: italic; margin: 0; }
+        .logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
+        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
+        .church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
         
-        /* МЕНЮ */
-        .navbar { background-color: #fff; padding: 20px 0; border-bottom: 1px solid #eee; }
-        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 10px; transition: color 0.3s; }
-        .nav-link:hover, .nav-link.active { color: var(--accent-gold) !important; }
+        @media (max-width: 991px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-img { margin-right: 0; margin-bottom: 15px; max-height: 120px; }
+            .church-info h1 { font-size: 1.4rem; }
+        }
+
+        .navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
+        .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
+        .dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
         
-        /* КОНТЕНТ */
         h2, h4 { font-family: 'Playfair Display', serif; color: #000; margin-bottom: 20px; }
         .contact-info p { margin-bottom: 15px; font-size: 1.05rem; }
         .contact-label { font-weight: bold; color: #555; }
-        
-        /* Ссылка на ВК */
         .vk-link { color: var(--accent-gold); font-weight: bold; text-decoration: none; border-bottom: 1px solid transparent; transition: 0.3s; }
         .vk-link:hover { border-bottom-color: var(--accent-gold); }
 
-        /* САЙДБАР (Календарь) */
         .sidebar-calendar { background: #f9f9f9; padding: 20px; border-top: 3px solid var(--accent-gold); }
-
         footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
-        
-        @media (max-width: 768px) { .header-container { flex-direction: column; text-align: center; } .logo-img { margin-right: 0; margin-bottom: 20px; } }
     </style>
 </head>
 <body>
@@ -60,11 +59,18 @@
             <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-                    <li class="nav-item"><a class="nav-link" href="history.html">О Храме</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="about.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            О Храме
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="about.html">История храма</a></li>
+                            <li><a class="dropdown-item" href="clergy.html">Духовенство</a></li>
+                        </ul>
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="donations.html">Пожертвования</a></li>
                     <li class="nav-item"><a class="nav-link" href="schedule.html">Расписание Богослужений</a></li>
                     <li class="nav-item"><a class="nav-link" href="publications.html">Публикации</a></li>
-                    <!-- Вот здесь была ошибка (пустая ссылка), теперь исправлено: -->
                     <li class="nav-item"><a class="nav-link active" href="contacts.html">Контакты</a></li>
                 </ul>
             </div>
@@ -74,7 +80,6 @@
     <div class="container my-5">
         <div class="row">
             
-            <!-- Основной контент (Контакты) -->
             <div class="col-lg-8">
                 <h2 class="text-center mb-5">Контакты</h2>
                 
@@ -88,12 +93,10 @@
                 </div>
 
                 <div class="mt-5">
-                    <!-- Карта -->
                     <iframe src="https://yandex.ru/map-widget/v1/?text=Липецк+ул+Артемова+храм&z=16" width="100%" height="400" frameborder="0"></iframe>
                 </div>
             </div>
 
-            <!-- Правая колонка (Календарь) - для единства стиля -->
             <div class="col-lg-4 mt-5 mt-lg-0">
                 <div class="sidebar-calendar">
                     <h5 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Календарь</h5>
