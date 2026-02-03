@@ -9,23 +9,31 @@
     <style>
         :root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
         body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
-        header { padding: 30px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
         .header-container { display: flex; align-items: center; justify-content: flex-start; }
-        .logo-img { max-height: 180px; width: auto; margin-right: 40px; }
-        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 10px; color: #000; line-height: 1.2; }
-        .church-info p { font-size: 1.1rem; color: #555; font-style: italic; margin: 0; }
-        .navbar { background-color: #fff; padding: 20px 0; border-bottom: 1px solid #eee; }
-        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 10px; transition: color 0.3s; }
+        .logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
+        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
+        .church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
+        
+        @media (max-width: 991px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-img { margin-right: 0; margin-bottom: 15px; max-height: 120px; }
+            .church-info h1 { font-size: 1.4rem; }
+        }
+
+        .navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
         .nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
         .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
         .dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
         
         h2.page-title { font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--accent-gold); display: inline-block; padding-bottom: 10px; }
-        h3.year-title { font-family: 'Playfair Display', serif; color: var(--accent-gold); margin-top: 40px; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        h3.year-title { font-family: 'Playfair Display', serif; color: var(--accent-gold); margin-top: 50px; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
         .history-text { font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
-        .history-img-block { text-align: center; margin: 20px 0; }
-        /* Исправили размер фото: */
-        .history-img { max-width: 100%; max-height: 500px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 10px; object-fit: contain; }
+        .history-img-block { text-align: center; margin: 30px 0; }
+        /* Адаптивные фото */
+        .history-img { max-width: 100%; height: auto; max-height: 600px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; object-fit: contain; }
         footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
     </style>
 </head>
@@ -53,7 +61,6 @@
                             О Храме
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <!-- Исправленное меню: всего 2 пункта -->
                             <li><a class="dropdown-item" href="about.html">История храма</a></li>
                             <li><a class="dropdown-item" href="clergy.html">Духовенство</a></li>
                         </ul>
@@ -84,8 +91,7 @@
                 </div>
                 
                 <div class="history-img-block">
-                    <!-- Уменьшенные фото -->
-                    <img src="foto_hrama2.jpg" alt="Вид храма" class="history-img" style="max-height: 500px;">
+                    <img src="foto_hrama2.jpg" alt="Вид храма" class="history-img">
                 </div>
 
                 <div class="history-text">
@@ -98,7 +104,7 @@
                 </div>
 
                 <div class="history-img-block">
-                    <img src="foto_hrama3.jpg" alt="Внутреннее убранство" class="history-img" style="max-height: 500px;">
+                    <img src="foto_hrama3.jpg" alt="Внутреннее убранство" class="history-img">
                 </div>
 
                 <!-- ЛЕТОПИСЬ -->
@@ -124,9 +130,7 @@
                     <p>6 марта 2019 года произошло важное событие в архитектурном становлении храма: здание обрело свою первую малую главу. Чин освящения купола и креста совершил Преосвященнейший Евфимий, епископ Усманский.</p>
                 </div>
                 <div class="history-img-block">
-                    <div class="row justify-content-center">
-                        <div class="col-md-6"><img src="Foto_1_kupola.jpg" class="history-img"></div>
-                    </div>
+                     <img src="Foto_1_kupola.jpg" class="history-img">
                 </div>
 
                 <h3 class="year-title">2020 год: Освящение главного купола</h3>
@@ -135,9 +139,9 @@
                 </div>
                 <div class="history-img-block">
                     <div class="row">
-                        <div class="col-md-4"><img src="foto_hrama_krest.jpg" class="history-img"></div>
-                        <div class="col-md-4"><img src="foto_hrama_krest1.jpg" class="history-img"></div>
-                        <div class="col-md-4"><img src="foto_hrama_kupol.jpg" class="history-img"></div>
+                        <div class="col-md-4 mb-3"><img src="foto_hrama_krest.jpg" class="history-img w-100"></div>
+                        <div class="col-md-4 mb-3"><img src="foto_hrama_krest1.jpg" class="history-img w-100"></div>
+                        <div class="col-md-4 mb-3"><img src="foto_hrama_kupol.jpg" class="history-img w-100"></div>
                     </div>
                 </div>
 
@@ -148,8 +152,8 @@
                 </div>
                 <div class="history-img-block">
                     <div class="row">
-                        <div class="col-md-6"><img src="foto_hrama_kolokola.jpg" class="history-img"></div>
-                        <div class="col-md-6"><img src="foto_hrama_kolokola1.jpg" class="history-img"></div>
+                        <div class="col-md-6 mb-3"><img src="foto_hrama_kolokola.jpg" class="history-img w-100"></div>
+                        <div class="col-md-6 mb-3"><img src="foto_hrama_kolokola1.jpg" class="history-img w-100"></div>
                     </div>
                 </div>
 
@@ -159,9 +163,9 @@
                 </div>
                 <div class="history-img-block">
                     <div class="row">
-                        <div class="col-md-6"><img src="foto_hrama_osvyachenie.jpg" class="history-img"></div>
-                        <div class="col-md-6"><img src="foto_hrama_osvyaschenie3.jpg" class="history-img"></div>
-                        <div class="col-md-12"><img src="foto_hrama_osvyachenie4.jpg" class="history-img"></div>
+                        <div class="col-md-6 mb-3"><img src="foto_hrama_osvyachenie.jpg" class="history-img w-100"></div>
+                        <div class="col-md-6 mb-3"><img src="foto_hrama_osvyaschenie3.jpg" class="history-img w-100"></div>
+                        <div class="col-md-12 mb-3"><img src="foto_hrama_osvyachenie4.jpg" class="history-img w-100"></div>
                     </div>
                 </div>
 
