@@ -8,52 +8,32 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-:root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
-body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
-
-header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
-.header-container { display: flex; align-items: center; justify-content: flex-start; }
-.logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
-.church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
-.church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
-
-.navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
-.nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
-.nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
-.dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
-.dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
-
-h2.page-title { font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--accent-gold); display: inline-block; padding-bottom: 10px; }
-h3.year-title { font-family: 'Playfair Display', serif; color: var(--accent-gold); margin-top: 50px; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-.history-text { font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
-.history-img-block { text-align: center; margin: 30px 0; }
-
-/* ОБЩИЕ СТИЛИ ДЛЯ ФОТО */
-.history-img { 
-    max-width: 100%; 
-    border-radius: 4px; 
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-    margin-bottom: 15px; 
-}
-
-/* ФИКСАЦИЯ ВЫСОТЫ ДЛЯ КОМПЬЮТЕРОВ (чтобы стояли ровно в ряд) */
-@media (min-width: 768px) {
-    .history-img {
-        height: 250px; /* Одинаковая высота для всех */
-        object-fit: cover; /* Обрезка краев, чтобы не было искажений */
-        width: 100%;
-    }
-}
-
-/* ДЛЯ ТЕЛЕФОНОВ (чтобы фото не обрезались и были на всю ширину) */
-@media (max-width: 767px) {
-    .history-img {
-        height: auto;
-        object-fit: contain;
-    }
-}
-
-footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
+        :root { --primary-text: #2c2c2c; --accent-gold: #c6a666; --bg-white: #ffffff; --menu-text: #333333; }
+        body { background-color: var(--bg-white); font-family: 'PT Serif', serif; color: var(--primary-text); }
+        
+        header { padding: 20px 0; background: #fff; border-bottom: 1px solid #f0f0f0; }
+        .header-container { display: flex; align-items: center; justify-content: flex-start; }
+        .logo-img { max-height: 160px; width: auto; margin-right: 30px; transition: 0.3s; }
+        .church-info h1 { font-family: 'Playfair Display', serif; font-size: 2rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 5px; color: #000; line-height: 1.1; }
+        .church-info p { font-size: 1.05rem; color: #555; font-style: italic; margin: 0; }
+        @media (max-width: 991px) {
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-img { margin-right: 0; margin-bottom: 15px; max-height: 120px; }
+            .church-info h1 { font-size: 1.4rem; }
+        }
+        .navbar { background-color: #fff; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .nav-link { font-family: 'Playfair Display', serif; text-transform: uppercase; color: var(--menu-text) !important; font-weight: 600; font-size: 0.95rem; letter-spacing: 1px; margin: 0 8px; transition: color 0.3s; }
+        .nav-link:hover, .nav-link.active, .dropdown-item:hover { color: var(--accent-gold) !important; }
+        .dropdown-menu { border-radius: 0; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-top: 0; }
+        .dropdown-item { font-family: 'Playfair Display', serif; text-transform: uppercase; font-size: 0.9rem; padding: 10px 20px; }
+        
+        h2.page-title { font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 40px; border-bottom: 2px solid var(--accent-gold); display: inline-block; padding-bottom: 10px; }
+        h3.year-title { font-family: 'Playfair Display', serif; color: var(--accent-gold); margin-top: 50px; margin-bottom: 25px; font-size: 1.8rem; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .history-text { font-size: 1.15rem; line-height: 1.8; text-align: justify; margin-bottom: 20px; }
+        .history-img-block { text-align: center; margin: 30px 0; }
+        /* Адаптивные фото */
+        .history-img { max-width: 100%; height: auto; max-height: 600px; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 15px; object-fit: contain; }
+        footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #777; text-align: center; border-top: 1px solid #eee; }
     </style>
 </head>
 <body>
@@ -209,6 +189,7 @@ footer { background-color: #f8f8f8; padding: 40px 0; margin-top: 60px; color: #7
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
 
 
 
